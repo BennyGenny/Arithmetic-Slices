@@ -1,0 +1,35 @@
+class Solution 
+{
+    public int numberOfArithmeticSlices(int[] nums) 
+    {
+        int size = nums.length;     // # of total elements in an array
+        
+        int contigArr = 0;          // holds the # of total contiguous subarrays
+        
+            
+        if(size< 3)         // if the array has less than 3 values, then returns 0;
+        {
+            return 0;
+        }
+        else
+        {
+            /*  -- Function for total contiguous subarrays in an array --
+            Examples:
+            size of Array   Output      Equation
+                4              3         2 + 1      //starting point is 2, from (size - 2);
+                5              6       3 + 2 + 1             //start at 3, from (size - 2);
+                6             10      4 + 3 + 2 + 1
+                7             15    5 + 4 + 3 + 2 + 1   
+            */
+            
+            size = size - 2;    //subtracts 2 from size to set up for function.
+
+                while(size>0)   //loops until size = 0 and then exits loop
+                {
+                    contigArr = contigArr + size;   // Adds size to contigArr each loop
+                    size = size - 1;                // subtracts size by 1;
+                }
+            return contigArr;       // return the total # of contiguous subarrays
+        }
+    }
+}
